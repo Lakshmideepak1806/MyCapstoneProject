@@ -10,20 +10,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import com.capstone.base.BaseTest;
 import com.capstone.utilities.ExcelUtiles;
 import com.capstone.utilities.ScreenshotUtiles;
-
 import java.io.IOException;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class EndToEndTestCase1 extends BaseTest {
 	static String projectpath = System.getProperty("user.dir");
     WebDriver driver;
     WebDriverWait wait;
-
     // Locators
     By link_Register = By.className("ico-register");
     By input_FirstName = By.id("FirstName");
@@ -43,20 +39,17 @@ public class EndToEndTestCase1 extends BaseTest {
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
     @AfterMethod
     public void afterMethod() {
         if (driver != null) {
            driver.quit();
         }
     }
-
     @Test(dataProvider = "registerdata")
     public void testRegisterAndLogout(String firstname,String lastname,String email,String password,String comfirmpass) throws Exception {
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get("https://demo.nopcommerce.com");
         test = extent.createTest("Verify Register and Logout Functionality");
-
         // Verify homepage
         String expectedHomeTitle = "nopCommerce demo store";
         String actualHomeTitle = driver.getTitle();
@@ -66,7 +59,6 @@ public class EndToEndTestCase1 extends BaseTest {
             String screenPath = ScreenshotUtiles.Capture(driver, "HomePage_NotLoaded");
             test.fail("Home page is not loaded").addScreenCaptureFromPath(screenPath);
         }
-        
         // Click Register link
         driver.findElement(link_Register).click();
 

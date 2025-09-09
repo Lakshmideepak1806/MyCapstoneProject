@@ -3,17 +3,17 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.capstone.test.EndToEndTestCase1">
+      <class name="com.capstone.test.EndToEndTestCase4">
         <methods>
+          <include name="testAddToWishlistFlow"/>
           <include name="flushreport"/>
-          <include name="beforeMethod"/>
           <include name="setupreport"/>
+          <include name="beforeMethod"/>
           <include name="teardown"/>
           <include name="setup"/>
           <include name="afterMethod"/>
-          <include name="testRegisterAndLogout" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.capstone.test.EndToEndTestCase1 -->
+      </class> <!-- com.capstone.test.EndToEndTestCase4 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
